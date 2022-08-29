@@ -10,13 +10,10 @@ class Solution {
         
         for(int i = 0; i < s.length(); i++)
         {
-            if(!currString.contains(Character.toString(s.charAt(i))))
-                currString += s.charAt(i);
-            else
-            {
-                currString += s.charAt(i);
+            if(currString.contains(Character.toString(s.charAt(i))))
                 currString = currString.substring(currString.indexOf(s.charAt(i)) + 1);
-            }
+            
+            currString += s.charAt(i);
 
             if(currString.length() > longest.length())
             {
