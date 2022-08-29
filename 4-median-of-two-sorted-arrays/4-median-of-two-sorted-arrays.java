@@ -32,23 +32,10 @@ class Solution {
         
         double output = 0;
         
-        System.out.println(combined.length);
-        
-        //for(int i = 0; i < combined.length; i++)
-        //    System.out.println(combined[i]);
-        
         if(combined.length % 2 == 1)
             output = combined[combined.length / 2];
         else
             output = (combined[combined.length / 2 - 1] + combined[combined.length / 2]) / 2.0;
-        /*
-        System.out.println(combined.length / 2 - 1);
-        System.out.println(combined[combined.length / 2 - 1]);
-        
-        System.out.println(combined.length / 2);
-        System.out.println(combined[combined.length / 2]);
-        
-        System.out.println((combined[combined.length / 2 - 1] + combined[combined.length / 2]) / 2.0);*/
         
         return output;
         
