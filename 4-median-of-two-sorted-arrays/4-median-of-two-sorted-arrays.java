@@ -38,7 +38,5 @@ class Solution {
             output = (combined[combined.length / 2 - 1] + combined[combined.length / 2]) / 2.0;
         
         return output;
-        
-        
     }
 }
