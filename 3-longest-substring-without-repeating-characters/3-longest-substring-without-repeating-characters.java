@@ -4,10 +4,6 @@ class Solution {
         String currString = "";
         String longest = "";
         
-        int currStringStartIndex = 0;
-        int repeatCharIndex = 0;
-        
-        
         for(int i = 0; i < s.length(); i++)
         {
             if(currString.contains(Character.toString(s.charAt(i))))
@@ -16,9 +12,7 @@ class Solution {
             currString += s.charAt(i);
 
             if(currString.length() > longest.length())
-            {
                 longest = currString;
-            }
         }
         return longest.length();
     }
