@@ -16,7 +16,6 @@
 class Solution {
     
     Queue<TreeNode> queue = new LinkedList<TreeNode>();
-    
     List<Integer> list = new ArrayList<Integer>();
     
     public boolean isEvenOddTree(TreeNode root) {
