@@ -21,14 +21,10 @@ class Solution {
         if(root != null)
         {
             if(root.left != null)
-            inorderTraversal(root.left);
+                inorderTraversal(root.left);
+            list.add(root.val);
             if(root.right != null)
-            {
-                list.add(root.val);
                 inorderTraversal(root.right);
-            }
-            else
-                list.add(root.val);
         }
         return list;
     }
