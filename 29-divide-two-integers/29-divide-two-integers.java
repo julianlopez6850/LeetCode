@@ -2,7 +2,6 @@ class Solution {
     public int divide(int dividend, int divisor) {
         
         int counter = 0;
-        
         boolean negative = false;
         boolean min = false;
         
@@ -21,7 +20,6 @@ class Solution {
             dividend = Math.abs(dividend);
             negative = !negative;
         }
-        
         if(divisor == Integer.MIN_VALUE)
         {
             if(min)
@@ -47,9 +45,7 @@ class Solution {
             dividend -= divisor;
             counter++;
             if(dividend + 1 - divisor == 0 && min)
-            {
                 counter ++;
-            }
         }
         if(negative)
             counter *= -1;
