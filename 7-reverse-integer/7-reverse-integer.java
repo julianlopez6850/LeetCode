@@ -30,7 +30,6 @@ class Solution {
         x = Math.abs(x);
         while(x > 0)
         {
-            System.out.print(x);
             stack.push(x % 10);
             x /= 10;
         }
