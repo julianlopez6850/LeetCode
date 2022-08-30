@@ -4,13 +4,14 @@ class Solution {
     
     public int reverse(int x) {
         
+        if(x == 0)
+            return 0;
+        
         int reverse = reverseHelper(x);
         int doubleReverse = reverseHelper(reverse);
         
-        while(x != 0 && x % 10 == 0)
-        {
+        while(x % 10 == 0)
             x /= 10;
-        }
         
         if(x == doubleReverse)
             return reverse;
@@ -32,19 +33,14 @@ class Solution {
             System.out.print(x);
             stack.push(x % 10);
             x /= 10;
-            System.out.println(" "+ stack + " " + counter + "\n-------------");
         }
         while(stack.size() > 0)
         {
             reversed += (int)Math.pow(10, counter) * stack.pop();
             counter++;
-            System.out.println(counter + " " + reversed);
         }
         if(!positive)
             reversed *= -1;
-        
-        System.out.println(positive);
-        System.out.println(reversed);
         
         if((positive && reversed < 0) || (!positive && reversed > 0))
             return 0;
