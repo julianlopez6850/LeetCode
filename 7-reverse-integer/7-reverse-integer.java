@@ -21,7 +21,6 @@ class Solution {
     public int reverseHelper(int x)
     {
         int reversed = 0;
-        int counter = 0;
         
         int sign = 1;
         if(x < 0)
@@ -29,16 +28,14 @@ class Solution {
             sign = -1;
             x = Math.abs(x);
         }
-        
         while(x > 0)
         {
             stack.push(x % 10);
             x /= 10;
         }
-        while(stack.size() > 0)
+        for(int i = 0; stack.size() > 0; i++)
         {
-            reversed += (int)Math.pow(10, counter) * stack.pop();
-            counter++;
+            reversed += (int)Math.pow(10, i) * stack.pop();
         }
         reversed *= sign;
         
