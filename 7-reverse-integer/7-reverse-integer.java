@@ -23,11 +23,13 @@ class Solution {
         int reversed = 0;
         int counter = 0;
         
-        boolean positive = false;
-        if(x > 0)
-            positive = true;
+        int sign = 1;
+        if(x < 0)
+        {
+            sign = -1;
+            x = Math.abs(x);
+        }
         
-        x = Math.abs(x);
         while(x > 0)
         {
             stack.push(x % 10);
@@ -38,8 +40,7 @@ class Solution {
             reversed += (int)Math.pow(10, counter) * stack.pop();
             counter++;
         }
-        if(!positive)
-            reversed *= -1;
+        reversed *= sign;
         
         return reversed;
     }
