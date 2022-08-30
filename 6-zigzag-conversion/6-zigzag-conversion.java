@@ -16,18 +16,18 @@ class Solution {
             stringList[currRow] += s.charAt(i);
             
             if(numRows > 1)
+            {
                 if(isRowIncreasing)
                     currRow++;
                 else
                     currRow--;
+            }
             if((!isRowIncreasing && currRow == 0) || (isRowIncreasing && currRow == numRows - 1))
                 isRowIncreasing = !isRowIncreasing;
         }
         
         for(int i = 0; i < stringList.length; i++)
-        {
             result += stringList[i];
-        }
         return result;
     }
 }
