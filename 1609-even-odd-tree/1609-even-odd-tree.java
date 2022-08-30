@@ -43,15 +43,11 @@ class Solution {
             
                 if((evenLevel && currValue % 2 == 0) || (!evenLevel && currValue % 2 == 1))
                     return false;
-                else if(firstValueInLevel)
-                {
-                    prevValue = currValue;
+                if(firstValueInLevel)
                     firstValueInLevel = false;
-                }
                 else if(evenLevel && (currValue <= prevValue) || !evenLevel && (currValue >= prevValue))
                     return false;
-                else
-                    prevValue = currValue;
+                prevValue = currValue;
             }
         }
         return true;
