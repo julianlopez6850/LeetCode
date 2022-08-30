@@ -50,14 +50,14 @@ class Solution {
                 }
                 else if(evenLevel)
                 {
-                    if(currValue <= prevValue || currValue % 2 != 1)
+                    if(currValue <= prevValue)
                         return false;
                     else
                         prevValue = currValue;
                 }
                 else if(!evenLevel)
                 {
-                    if(currValue >= prevValue || currValue % 2 != 0)
+                    if(currValue >= prevValue)
                         return false;
                     else
                         prevValue = currValue;
