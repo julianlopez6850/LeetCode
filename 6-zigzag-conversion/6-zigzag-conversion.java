@@ -3,19 +3,18 @@ class Solution {
         
         String result = "";
         
-        List<String> stringList = new ArrayList<String>();
+        String[] stringList = new String[numRows];
         
         for(int i = 0; i < numRows; i++)
-        {
-            stringList.add("");
-        }
+            stringList[i] = "";
         
         int currRow = 0;
         boolean isRowIncreasing = true;
 
         for(int i = 0; i < s.length(); i++)
         {
-            stringList.set(currRow, stringList.get(currRow) + s.charAt(i));
+            stringList[currRow] += s.charAt(i);
+            //stringList.set(currRow, stringList.get(currRow) + s.charAt(i));
             
             if(numRows > 1)
             {
@@ -28,9 +27,9 @@ class Solution {
                 isRowIncreasing = !isRowIncreasing;
         }
         
-        for(int i = 0; i < stringList.size(); i++)
+        for(int i = 0; i < stringList.length; i++)
         {
-            result += stringList.get(i);
+            result += stringList[i];
         }
         return result;
     }
