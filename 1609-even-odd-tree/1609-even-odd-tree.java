@@ -48,20 +48,10 @@ class Solution {
                     prevValue = currValue;
                     firstValueInLevel = false;
                 }
-                else if(evenLevel)
-                {
-                    if(currValue <= prevValue)
-                        return false;
-                    else
-                        prevValue = currValue;
-                }
-                else if(!evenLevel)
-                {
-                    if(currValue >= prevValue)
-                        return false;
-                    else
-                        prevValue = currValue;
-                }
+                else if(evenLevel && (currValue <= prevValue) || !evenLevel && (currValue >= prevValue))
+                    return false;
+                else
+                    prevValue = currValue;
             }
         }
         return true;
