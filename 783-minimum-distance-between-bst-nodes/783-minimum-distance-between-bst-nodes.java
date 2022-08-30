@@ -22,11 +22,11 @@ class Solution {
         inorderTraversal(root);
         
         int currDifference = 0;
-        int minDifference = Math.abs(list.get(0) - list.get(1));
+        int minDifference = list.get(1) - list.get(0);
         
         for(int i = 1; i < list.size() - 1; i++)
         {
-            currDifference = Math.abs(list.get(i) - list.get(i + 1));
+            currDifference = list.get(i + 1) - list.get(i);
             if(currDifference < minDifference)
                 minDifference = currDifference;
         }
