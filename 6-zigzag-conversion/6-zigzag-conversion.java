@@ -9,21 +9,16 @@ class Solution {
             stringList[i] = "";
         
         int currRow = 0;
-        boolean isRowIncreasing = true;
+        int rowStep = 1;
 
         for(int i = 0; i < s.length(); i++)
         {
             stringList[currRow] += s.charAt(i);
             
             if(numRows > 1)
-            {
-                if(isRowIncreasing)
-                    currRow++;
-                else
-                    currRow--;
-            }
-            if((!isRowIncreasing && currRow == 0) || (isRowIncreasing && currRow == numRows - 1))
-                isRowIncreasing = !isRowIncreasing;
+                currRow += rowStep;
+            if((rowStep == -1 && currRow == 0) || (rowStep == 1 && currRow == numRows - 1))
+                rowStep *= -1;
         }
         
         for(int i = 0; i < stringList.length; i++)
