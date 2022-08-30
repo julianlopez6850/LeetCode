@@ -14,15 +14,12 @@ class Solution {
         for(int i = 0; i < s.length(); i++)
         {
             stringList[currRow] += s.charAt(i);
-            //stringList.set(currRow, stringList.get(currRow) + s.charAt(i));
             
             if(numRows > 1)
-            {
                 if(isRowIncreasing)
                     currRow++;
                 else
                     currRow--;
-            }
             if((!isRowIncreasing && currRow == 0) || (isRowIncreasing && currRow == numRows - 1))
                 isRowIncreasing = !isRowIncreasing;
         }
