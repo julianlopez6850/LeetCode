@@ -16,6 +16,7 @@
 class Solution {
     
     Queue<TreeNode> queue = new LinkedList<TreeNode>();
+    
     List<Integer> list = new ArrayList<Integer>();
     
     public boolean isEvenOddTree(TreeNode root) {
@@ -42,18 +43,31 @@ class Solution {
             
                 if((evenLevel && currValue % 2 == 0) || (!evenLevel && currValue % 2 == 1))
                     return false;
-                if(firstValueInLevel)
+                else if(firstValueInLevel)
+                {
+                    prevValue = currValue;
                     firstValueInLevel = false;
-                else if(evenLevel && (currValue <= prevValue) || !evenLevel && (currValue >= prevValue))
-                    return false;
-                prevValue = currValue;
+                }
+                else if(evenLevel)
+                {
+                    if(currValue <= prevValue || currValue % 2 != 1)
+                        return false;
+                    else
+                        prevValue = currValue;
+                }
+                else if(!evenLevel)
+                {
+                    if(currValue >= prevValue || currValue % 2 != 0)
+                        return false;
+                    else
+                        prevValue = currValue;
+                }
             }
         }
         return true;
     }
     
     public List<Integer> levelOrderTraversal(TreeNode root) {
-        
         if(root != null)
         {
             list.add(root.val);
