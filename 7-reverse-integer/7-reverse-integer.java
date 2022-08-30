@@ -3,7 +3,6 @@ class Solution {
     Stack<Integer> stack = new Stack<Integer>();
     
     public int reverse(int x) {
-        
         if(x == 0)
             return 0;
         
