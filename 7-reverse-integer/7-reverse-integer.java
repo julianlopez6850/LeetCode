@@ -42,11 +42,6 @@ class Solution {
         if(!positive)
             reversed *= -1;
         
-        if((positive && reversed < 0) || (!positive && reversed > 0))
-            return 0;
-        else
-            return reversed;
+        return reversed;
     }
-    
-    
 }
