@@ -21,11 +21,13 @@ class Solution {
     public int reverseHelper(int x)
     {
         int reversed = 0;
-        
         int sign = 1;
+        
         if(x < 0)
+        {
             sign = -1;
-        x = Math.abs(x);
+            x = Math.abs(x);
+        }
         while(x > 0)
         {
             stack.push(x % 10);
