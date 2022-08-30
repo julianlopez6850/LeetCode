@@ -22,7 +22,6 @@ class Solution {
     {
         int reversed = 0;
         int sign = 1;
-        
         if(x < 0)
         {
             sign = -1;
