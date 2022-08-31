@@ -18,7 +18,6 @@ class Solution {
                     currStorage = (j - i) * (height[j]);
                 else
                     currStorage = (j - i) * (height[i]);
-                
                 if(currStorage > mostStorage)
                     mostStorage = currStorage;
             }
