@@ -15,9 +15,8 @@ class Solution {
             x /= 10;
         }
         for(int i = 0; stack.size() > 0; i++)
-        {
             reversed += stack.pop() * Math.pow(10, i);
-        }
+        
         if(num == reversed)
             return true;
         return false;
