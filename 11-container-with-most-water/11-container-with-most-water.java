@@ -9,11 +9,9 @@ class Solution {
             while(height[i] <= mostStorage/(height.length - i))
             {
                 if(i == height.length - 1)
-                    break;
+                    return mostStorage;
                 i++;
             }
-            if(i == height.length - 1)
-                    break;
             for(int j = (mostStorage / height[i]) + i; j < height.length; j++)
             {
                 if(height[i] > height[j])
