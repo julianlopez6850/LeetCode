@@ -14,9 +14,7 @@ class Solution {
         ListNode dummyHead = new ListNode();
         ListNode mergedList = dummyHead;
         
-        ListNode currNode = new ListNode();
         int listIndex = 0;
-        
         while(lists.length > 0)
         {
             listIndex = 0;
@@ -24,14 +22,11 @@ class Solution {
             for(int i = 0; i < lists.length; i++)
             {
                 if(lists[i] != null)
-                {
-                    currNode = lists[i];
-                    if(mergedList.next == null || currNode.val < mergedList.next.val)
+                    if(mergedList.next == null || lists[i].val < mergedList.next.val)
                     {
                         listIndex = i;
-                        mergedList.next = currNode;
+                        mergedList.next = lists[i];
                     }
-                }
             }
             if(mergedList.next == null)
                 return dummyHead.next;
