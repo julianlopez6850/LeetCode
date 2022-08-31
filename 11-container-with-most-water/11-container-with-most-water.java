@@ -12,7 +12,9 @@ class Solution {
                     break;
                 i++;
             }
-            for(int j = i + 1; j < height.length ; j++)
+            if(i == height.length - 1)
+                    break;
+            for(int j = (mostStorage / height[i]) + i; j < height.length; j++)
             {
                 if(height[i] > height[j])
                     currStorage = (j - i) * (height[j]);
