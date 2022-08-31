@@ -15,33 +15,29 @@ class Solution {
         ListNode mergedList = dummyHead;
         
         ListNode currNode = new ListNode();
-        ListNode lowestNode = new ListNode();
-        
         int listIndex = 0;
         
         while(lists.length > 0)
         {
             listIndex = 0;
-            lowestNode = lists[0];
+            mergedList.next = lists[0];
             for(int i = 0; i < lists.length; i++)
             {
                 if(lists[i] != null)
                 {
                     currNode = lists[i];
-                    if(lowestNode == null || currNode.val < lowestNode.val)
+                    if(mergedList.next == null || currNode.val < mergedList.next.val)
                     {
                         listIndex = i;
-                        lowestNode = currNode;
+                        mergedList.next = currNode;
                     }
                 }
             }
-            if(lowestNode == null)
-                break;
-            mergedList.next = lowestNode;
+            if(mergedList.next == null)
+                return dummyHead.next;
             mergedList = mergedList.next;
             lists[listIndex] = lists[listIndex].next;
         }
-        
         return dummyHead.next;
     }
 }
