@@ -6,7 +6,7 @@ class Solution {
         
         for(int i = 0; i < height.length; i++)
         {
-            while(height[i] < mostStorage/height.length)
+            while(height[i] <= mostStorage/height.length)
             {
                 if(i == height.length - 1)
                     break;
