@@ -20,14 +20,12 @@ class Solution {
             listIndex = 0;
             mergedList.next = lists[0];
             for(int i = 0; i < lists.length; i++)
-            {
                 if(lists[i] != null)
                     if(mergedList.next == null || lists[i].val < mergedList.next.val)
                     {
                         listIndex = i;
                         mergedList.next = lists[i];
                     }
-            }
             if(mergedList.next == null)
                 return dummyHead.next;
             mergedList = mergedList.next;
