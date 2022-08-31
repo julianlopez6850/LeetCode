@@ -28,12 +28,7 @@ class Solution {
                 if(lists[i] != null)
                 {
                     currNode = lists[i];
-                    if(lowestNode == null)
-                    {
-                        listIndex = i;
-                        lowestNode = currNode;
-                    }
-                    if(currNode.val < lowestNode.val)
+                    if(lowestNode == null || currNode.val < lowestNode.val)
                     {
                         listIndex = i;
                         lowestNode = currNode;
