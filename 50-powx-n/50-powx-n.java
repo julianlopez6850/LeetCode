@@ -3,25 +3,20 @@ class Solution {
         if(x == 1)
             return 1;
         if(x == -1)
-        {
             if(n % 2 == 0)
                 return 1;
             else
                 return -1;
-        }
         if(n == 0)
             return 1;
         if(n < -10000)
             return 0;
-        
         if(n < 0)
             x = 1 / x;
         return myPowHelper(x, n);
     }
     public double myPowHelper(double x, int n) 
     {
-        int sign = (x > 0) ? 1 : -1; 
-        
         if(n > 0)
         {
             if(n == 1)
