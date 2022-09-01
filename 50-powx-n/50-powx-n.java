@@ -1,9 +1,5 @@
 class Solution {
     public double myPow(double x, int n) {
-        
-        double num = x;
-        
-        
         if(x == 1)
             return 1;
         if(x == -1)
@@ -17,12 +13,32 @@ class Solution {
             return 1;
         if(n < -10000)
             return 0;
-        else if(n < 0)
-            for(int i = 0; i > n - 1; i--)
-                x /= num;
+        
+        if(n < 0)
+            x = 1 / x;
+        return myPowHelper(x, n);
+    }
+    public double myPowHelper(double x, int n) 
+    {
+        int sign = (x > 0) ? 1 : -1; 
+        
+        if(n > 0)
+        {
+            if(n == 1)
+                return x;
+            if(n % 2 == 0)
+                return myPowHelper(x * x, n / 2);
+            else
+                return myPowHelper(x * x, n / 2) * x;
+        }
         else
-            for(int i = 0; i < n - 1; i++)
-                x *= num;
-        return x;
+        {
+            if(n == -1)
+                return x;
+            if(n % 2 == 0)
+                return myPowHelper(x * x, n / 2);
+            else
+                return myPowHelper(x * x, n / 2) * x;
+        }
     }
 }
