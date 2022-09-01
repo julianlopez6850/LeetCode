@@ -15,10 +15,7 @@
  */
 class Solution {
     public int goodNodes(TreeNode root) {
-        
-        int greatestValue = root.val;
-        
-        return goodNodesHelper(root, greatestValue);
+        return goodNodesHelper(root, root.val);
     }
     
     public int goodNodesHelper(TreeNode root, int greatestValue)
@@ -31,9 +28,7 @@ class Solution {
                 return goodNodesHelper(root.left, greatestValue) + goodNodesHelper(root.right, greatestValue) + 1;
             }
             else
-            {
                 return goodNodesHelper(root.left, greatestValue) + goodNodesHelper(root.right, greatestValue);
-            }
         }
         return 0;
     }
