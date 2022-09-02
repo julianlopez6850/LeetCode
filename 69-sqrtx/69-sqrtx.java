@@ -1,25 +1,17 @@
 class Solution {
-    public int mySqrt(int x) {
-        for(int i = mySqrtHelper(x, 1); i < 46341; i++)
-        {
-            if(i * i > x)
-                return i - 1;
-        }
-        return 46340;
+    public int mySqrt(int x)
+    {
+        return mySqrtHelper(x, 0, 46341);
     }
     
-    public int mySqrtHelper(double x, int sqrt)
+    public int mySqrtHelper(double x, int startIndex, int endIndex)
     {
-        if(x / 9 > 1)
-        {
-            sqrt *= 3;
-            return mySqrtHelper(x / 9, sqrt);
-        }
-        if(x / 4 > 1)
-        {
-            sqrt *= 2;
-            return mySqrtHelper(x / 4, sqrt);
-        }
-        return (int)(sqrt);
+        if(endIndex - startIndex == 1)
+            return startIndex;
+        int midIndex = endIndex - (endIndex - startIndex) / 2;
+        if(midIndex * midIndex > x)
+            return mySqrtHelper(x, startIndex, midIndex);
+        else
+            return mySqrtHelper(x, midIndex, endIndex);
     }
 }
