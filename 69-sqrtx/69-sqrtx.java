@@ -1,7 +1,4 @@
 class Solution {
-    
-    
-    
     public int mySqrt(int x)
     {
         int startIndex = 0;
