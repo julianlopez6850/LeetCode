@@ -19,36 +19,16 @@ class Solution {
     List<Integer> list = new ArrayList<Integer>();
     List<Double> result = new ArrayList<Double>();
     
+    int levelCounter = 0;
+    long levelSum = 0;
+    int nodeCounter = 0;
     
-    public List<Double> averageOfLevels(TreeNode root){
+    public List<Double> averageOfLevels(TreeNode root) {
         
         queue.add(null);
         levelOrderTraversal(root);
-        
-        System.out.println(list);
-
-        int levelCounter = 0;
-        long levelSum = 0;
-        int nodeCounter = 0;
-        
-        for(int i = 0; i < list.size(); i++)
-        {
-            if(list.get(i) != null)
-            {
-                levelSum += list.get(i);
-                nodeCounter++;
-            }
-            else
-            {
-                result.add(levelCounter, levelSum / Double.valueOf(nodeCounter) );
-                nodeCounter = 0;
-                levelSum = 0;
-                levelCounter++;
-            }
-        }
         return result;
     }
-    
     
     public List<Integer> levelOrderTraversal(TreeNode root)
     {
@@ -59,17 +39,22 @@ class Solution {
                 queue.add(root.left);
             if(root.right != null)
                 queue.add(root.right);
+            levelSum += root.val;
+            nodeCounter++;
         }
         else if(queue.size() > 0)
         {
             list.add(null);
             queue.add(null);
+            result.add(levelCounter, levelSum / Double.valueOf(nodeCounter));
+            nodeCounter = 0;
+            levelSum = 0;
+            levelCounter++;
         }
         if(queue.size() > 0)
             levelOrderTraversal(queue.remove());
         else
-            list.add(null);
+            result.add(levelCounter, levelSum / Double.valueOf(nodeCounter));
         return list;
-        
     }
 }
