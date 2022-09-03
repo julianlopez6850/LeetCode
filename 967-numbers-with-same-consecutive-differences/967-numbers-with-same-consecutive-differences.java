@@ -20,8 +20,8 @@ class Solution {
             result.add(num);
             return;
         }
-        List<Integer> nextDigits = new ArrayList<Integer>();
         
+        List<Integer> nextDigits = new ArrayList<Integer>();
         int lastDigit = num % 10;
         
         /*  
@@ -34,10 +34,8 @@ class Solution {
         if(k != 0 && lastDigit - k >= 0)
             nextDigits.add(lastDigit - k);
         
-        for(int i = 0; i < nextDigits.size(); i++)      // repeat method call with newNum (num with nextDigits appended).
-        {
-            int newNum = num * 10 + nextDigits.get(i);
-            DepthFirstSearch(n - 1, newNum, k, result);
-        }
+        // repeat method call with newNum (num with nextDigits appended).
+        for(int i = 0; i < nextDigits.size(); i++)
+            DepthFirstSearch(n - 1, num * 10 + nextDigits.get(i), k, result);
     }
 }
