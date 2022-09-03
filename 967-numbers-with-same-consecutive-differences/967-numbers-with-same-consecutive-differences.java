@@ -25,8 +25,8 @@ class Solution {
         int lastDigit = num % 10;
         
         /*  
-            if lastDigit + k < 10, it is a possible next digit, thus add it to nextDigit.
-            if lastDigit - k > 0, it is a possible next digit, thus add it to nextDigit.
+            if (lastDigit + k) < 10, it is a possible next digit, thus add it to nextDigit.
+            if (lastDigit - k) >= 0, it is a possible next digit, thus add it to nextDigit.
             if k = 0, make sure to not add the digit twice.
         */
         if(lastDigit + k < 10)
