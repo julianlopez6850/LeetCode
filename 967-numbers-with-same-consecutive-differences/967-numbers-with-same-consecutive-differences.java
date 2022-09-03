@@ -2,9 +2,6 @@ class Solution {
     
     public int[] numsSameConsecDiff(int n, int k)
     {
-        if(n == 1)
-            return new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        
         List<Integer> result = new ArrayList<Integer>();
         for(int i = 1; i < 10; i++)
             DepthFirstSearch(n, i, k, result);
