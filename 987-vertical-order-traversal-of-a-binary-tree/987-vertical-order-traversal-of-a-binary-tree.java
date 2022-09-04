@@ -27,6 +27,7 @@ class Solution {
         
         List<Integer> columns = new ArrayList<Integer>();
         columns.add(0);
+        
         // fill up unique columns into arrayList columns
         for(int i = 0; i < columnList.size(); i++)
         {
@@ -53,8 +54,8 @@ class Solution {
             }
         }
         
-        int row = 0;
-        int row2 = 0;
+        int rowi = 0;
+        int rowj = 0;
         // order nodes in same position from least to greatest value
         for(int i = 0; i < columnList.size(); i++)
         {
@@ -64,7 +65,7 @@ class Solution {
                 {
                     if(columnList.get(j) != null)
                     {
-                        if(row == row2 && columnList.get(i) == columnList.get(j) && levelOrder.get(i) > levelOrder.get(j) && i < j)
+                        if(rowi == rowj && columnList.get(i) == columnList.get(j) && levelOrder.get(i) > levelOrder.get(j) && i < j)
                         {
                             int temp = levelOrder.get(i);
                             levelOrder.set(i, levelOrder.get(j));
@@ -72,12 +73,12 @@ class Solution {
                         }
                     }
                     else
-                        row2++;
+                        rowj++;
                 }
             }
             else
-                row++;
-            row2 = 0;
+                rowi++;
+            rowj = 0;
         }
         
         //fill in result
