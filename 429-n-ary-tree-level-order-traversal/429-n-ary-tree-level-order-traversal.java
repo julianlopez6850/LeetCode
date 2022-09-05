@@ -32,8 +32,15 @@ class Solution {
         for(int i = 0; i < list.size(); i++)
         {
             if(list.get(i) != null)
+            {
                 temp.add(list.get(i));
-            if(list.get(i) == null || i == list.size() - 1)
+                if(i == list.size() - 1)
+                {
+                    result.add(temp);
+                    temp = new ArrayList<Integer>();
+                }
+            }
+            else
             {
                 result.add(temp);
                 temp = new ArrayList<Integer>();
