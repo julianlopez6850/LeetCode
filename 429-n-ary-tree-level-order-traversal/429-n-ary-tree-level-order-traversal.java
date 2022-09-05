@@ -32,9 +32,7 @@ class Solution {
         for(int i = 0; i < list.size(); i++)
         {
             if(list.get(i) != null)
-            {
                 temp.add(list.get(i));
-            }
             if(list.get(i) == null || i == list.size() - 1)
             {
                 result.add(temp);
@@ -48,12 +46,9 @@ class Solution {
         if(root != null)
         {
             list.add(root.val);
-            
             for(int i = 0; i < root.children.size(); i++)
-            {
                 if(root.children.get(i) != null)
                     queue.add(root.children.get(i));
-            }
         }
         else if(queue.size() > 0)
         {
