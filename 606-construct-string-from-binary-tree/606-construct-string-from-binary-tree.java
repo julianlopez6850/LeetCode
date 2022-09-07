@@ -15,14 +15,20 @@
  */
 class Solution {
     
-    StringBuilder str = new StringBuilder();
     
     public String tree2str(TreeNode root) {
+        StringBuilder str = new StringBuilder();
+        tree2strHelper(root, str);
+        return str.toString();
+    }
+    
+    public void tree2strHelper(TreeNode root, StringBuilder str)
+    {
         str.append(root.val);
         if(root.left != null)
         {
             str.append("(");
-            tree2str(root.left);
+            tree2strHelper(root.left, str);
             str.append(")");
         }
         else if(root.right != null)
@@ -31,9 +37,8 @@ class Solution {
         if(root.right != null)
         {
             str.append("(");
-            tree2str(root.right);
+            tree2strHelper(root.right, str);
             str.append(")");
         }
-        return str.toString();
     }
 }
