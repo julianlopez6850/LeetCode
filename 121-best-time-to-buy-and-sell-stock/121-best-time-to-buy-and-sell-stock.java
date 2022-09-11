@@ -6,8 +6,8 @@ class Solution {
         for(int i = 0; i < prices.length; i++){
             if(prices[i] < currLeast)
                 currLeast = prices[i];
-            else if(prices[i] - currLeast > bestProfit)
-                bestProfit = prices[i] - currLeast;
+            else
+                bestProfit = (prices[i] - currLeast > bestProfit) ? prices[i] - currLeast : bestProfit;
         }
         return bestProfit;
     }
