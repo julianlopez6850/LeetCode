@@ -1,6 +1,6 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        int currLeast = Integer.MAX_VALUE;
+        int currLeast = prices[0];
         int bestProfit = 0;
         int currProfit = 0;
         
