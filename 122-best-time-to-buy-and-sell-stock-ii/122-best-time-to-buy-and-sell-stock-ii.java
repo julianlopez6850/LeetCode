@@ -8,7 +8,6 @@ class Solution {
             return 0;
         for(int i = 0; i < prices.length - 1; i++)
         {
-            System.out.println(profit);
             if(prices[i + 1] > prices[i])
             {
                 if(boughtPrice == -1)
