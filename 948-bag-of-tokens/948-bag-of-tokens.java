@@ -11,15 +11,13 @@ class Solution {
             // if there is enough power for the next token, play it face up and increase our score.
             if(tokens[i] <= power)
             {
-                power -= tokens[i];
-                i++;
+                power -= tokens[i++];
                 score++;
             }
             // otherwise, if we have a score greater than 0 and this isn't the last token, play it face down, and add its value to our power.
             else if(score > 0 && i + j != tokens.length)
             {
-                power += tokens[tokens.length - j];
-                j++;
+                power += tokens[tokens.length - j++];
                 score--;
             }
             else
