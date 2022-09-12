@@ -1,9 +1,6 @@
 class Solution {
     public int bagOfTokensScore(int[] tokens, int power) {
         
-        if(tokens.length == 0)
-            return 0;
-        
         int result = 0;
         
         // sort tokens in ascending order using quicksort algorithm.
@@ -26,7 +23,6 @@ class Solution {
             else
                 break;
         }
-        
         return result;
     }
     
