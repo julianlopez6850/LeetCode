@@ -50,5 +50,4 @@ class Solution {
             quickSort(arr, i + 2, end);
         }
     }
-    
 }
