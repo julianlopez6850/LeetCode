@@ -1,29 +1,31 @@
 class Solution {
     public int bagOfTokensScore(int[] tokens, int power) {
         
-        int result = 0;
+        int score = 0;
         
         // sort tokens in ascending order using quicksort algorithm.
         quickSort(tokens, 0, tokens.length - 1);
         
         for(int i = 0, j = 1; i + j <= tokens.length;)
         {
+            // if there is enough power for the next token, play it face up and increase our score.
             if(tokens[i] <= power)
             {
                 power -= tokens[i];
                 i++;
-                result++;
+                score++;
             }
-            else if(result > 0 && i + j != tokens.length)
+            // otherwise, if we have a score greater than 0 and this isn't the last token, play it face down, and add its value to our power.
+            else if(score > 0 && i + j != tokens.length)
             {
                 power += tokens[tokens.length - j];
                 j++;
-                result--;
+                score--;
             }
             else
                 break;
         }
-        return result;
+        return score;
     }
     
     public void quickSort(int[] arr, int start, int end)
