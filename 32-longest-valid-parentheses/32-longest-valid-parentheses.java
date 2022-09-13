@@ -8,17 +8,9 @@ class Solution {
         for(int i = 0; i < s.length(); i++)
         {
             if(s.charAt(i) == '(')
-            {
-                if(opened == -1)
-                    opened = 1;
-                else
-                    opened++;
-            }
+                opened++;
             else if(opened <= 0)
-            {
-                opened = -1;
-                curr = 0;
-            }
+                opened = curr = 0;
             else
             {
                 opened--;
@@ -33,17 +25,9 @@ class Solution {
         for(int i = s.length() - 1; i >= 0; i--)
         {
             if(s.charAt(i) == ')')
-            {
-                if(opened == -1)
-                    opened = 1;
-                else
-                    opened++;
-            }
+                opened++;
             else if(opened <= 0)
-            {
-                opened = -1;
-                curr = 0;
-            }
+                opened = curr = 0;
             else
             {
                 opened--;
@@ -52,7 +36,6 @@ class Solution {
                     longest = (curr > longest) ? curr : longest;
             }
         }
-        
         return longest;
     }
 }
