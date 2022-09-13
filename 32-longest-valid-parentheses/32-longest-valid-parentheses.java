@@ -5,28 +5,30 @@ class Solution {
         int curr = 0;
         int longest = 0;
         
+        int[] sValue = new int[s.length()];
         
-        for(int i = 0; i < s.length(); i++)
+        for(int i = 1; i < s.length(); i++)
         {
-            for(int j = i; j < s.length(); j++)
+            if(s.charAt(i) == ')' && s.charAt(i - 1) == '(')
             {
-                if(s.charAt(j) == '(')
-                {
-                    opened++;
-                    curr++;
-                }
-                else if(opened > 0)
-                {
-                    opened--;
-                    curr++;
-                    if(opened == 0)
-                        longest = (curr > longest) ? curr : longest;
-                }
+                if(i - 2 > 0)
+                    sValue[i] = sValue[i - 2] + 2;
                 else
-                    curr = 0;
+                    sValue[i] = 2;
             }
-            curr = 0;
-            opened = 0;
+            else if(s.charAt(i) == ')' && s.charAt(i - 1) == ')')
+            {
+                if(i - sValue[i - 1] - 1 >= 0 && s.charAt(i - sValue[i - 1] - 1) == '(')
+                {
+                    if(i - sValue[i - 1] - 2 > 0)
+                        sValue[i] = sValue[i - 1] + sValue[i - sValue[i - 1] - 2] + 2;
+                    else
+                        sValue[i] = sValue[i - 1] + 2;
+                }
+            }
+            
+            if(sValue[i] > longest)
+                longest = sValue[i];
         }
         return longest;
     }
