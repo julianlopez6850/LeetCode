@@ -5,31 +5,54 @@ class Solution {
         int curr = 0;
         int longest = 0;
         
-        int[] sValue = new int[s.length()];
-        
-        for(int i = 1; i < s.length(); i++)
+        for(int i = 0; i < s.length(); i++)
         {
-            if(s.charAt(i) == ')' && s.charAt(i - 1) == '(')
+            if(s.charAt(i) == '(')
             {
-                if(i - 2 > 0)
-                    sValue[i] = sValue[i - 2] + 2;
+                if(opened == -1)
+                    opened = 1;
                 else
-                    sValue[i] = 2;
+                    opened++;
             }
-            else if(s.charAt(i) == ')' && s.charAt(i - 1) == ')')
+            else if(opened <= 0)
             {
-                if(i - sValue[i - 1] - 1 >= 0 && s.charAt(i - sValue[i - 1] - 1) == '(')
-                {
-                    if(i - sValue[i - 1] - 2 > 0)
-                        sValue[i] = sValue[i - 1] + sValue[i - sValue[i - 1] - 2] + 2;
-                    else
-                        sValue[i] = sValue[i - 1] + 2;
-                }
+                opened = -1;
+                curr = 0;
             }
-            
-            if(sValue[i] > longest)
-                longest = sValue[i];
+            else
+            {
+                opened--;
+                curr += 2;
+                if(opened == 0)
+                    longest = (curr > longest) ? curr : longest;
+            }
         }
+        
+        opened = curr = 0;
+            
+        for(int i = s.length() - 1; i >= 0; i--)
+        {
+            if(s.charAt(i) == ')')
+            {
+                if(opened == -1)
+                    opened = 1;
+                else
+                    opened++;
+            }
+            else if(opened <= 0)
+            {
+                opened = -1;
+                curr = 0;
+            }
+            else
+            {
+                opened--;
+                curr += 2;
+                if(opened == 0)
+                    longest = (curr > longest) ? curr : longest;
+            }
+        }
+        
         return longest;
     }
 }
