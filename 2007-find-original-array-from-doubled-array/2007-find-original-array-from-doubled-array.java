@@ -19,8 +19,6 @@ class Solution {
                     if(changed[j] == changed[i] * 2)
                     {
                         result[resIndex++] = changed[i];
-                        if(resIndex == result.length)
-                            return result;
                         changed[j] = -1;
                         prevDoubleIndex = j;
                         break;
@@ -29,6 +27,8 @@ class Solution {
                         return new int[0];
                 }
             }
+            if(resIndex == result.length)
+                return result;
         }
         if(resIndex != result.length)
             return new int[0];
