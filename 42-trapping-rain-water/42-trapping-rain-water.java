@@ -6,7 +6,7 @@ class Solution {
         int rightMax = 0;
         int leftSide[] = new int[height.length];
         int rightSide[] = new int[height.length];
-        
+        int min = 0;
         
         for(int i = 0; i < height.length; i++)
         {
@@ -23,8 +23,8 @@ class Solution {
         {
             if(leftSide[i] != 0 && rightSide[i] != 0)
             {
-                if(height[i] < ((leftSide[i] > rightSide[i]) ? rightSide[i] : leftSide[i]))
-                    result += ((leftSide[i] > rightSide[i]) ? rightSide[i] : leftSide[i]) - height[i];
+                if(height[i] < (min = ((leftSide[i] > rightSide[i]) ? rightSide[i] : leftSide[i])))
+                    result += min - height[i];
             }
         }
         return result;
