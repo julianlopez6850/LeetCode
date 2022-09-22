@@ -4,10 +4,10 @@ class Solution {
         int answer[] = new int[queries.length];
         int even = 0;
         
-        for(int i = 0; i < nums.length; i++)
+        for(int num : nums)
         {
-            if(nums[i] % 2 == 0)
-                even += nums[i];
+            if(num % 2 == 0)
+                even += num;
         }
         
         for(int i = 0; i < queries.length; i++)
