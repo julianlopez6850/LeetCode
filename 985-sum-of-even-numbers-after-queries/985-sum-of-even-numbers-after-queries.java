@@ -2,8 +2,6 @@ class Solution {
     public int[] sumEvenAfterQueries(int[] nums, int[][] queries) {
         
         int answer[] = new int[queries.length];
-        int numBeforeQuery = 0;
-        Boolean before = false, after = false;
         
         for(int i = 0; i < nums.length; i++)
         {
@@ -13,8 +11,6 @@ class Solution {
         
         for(int i = 0; i < queries.length; i++)
         {
-            numBeforeQuery = nums[queries[i][1]];
-            
             if(nums[queries[i][1]] % 2 == 0)
                 answer[i] -= nums[queries[i][1]];
             
@@ -25,8 +21,6 @@ class Solution {
                 
             if(i + 1 != queries.length)
                 answer[i+1] = answer[i];
-            
-            before = after = false;
         }
         return answer;
     }
