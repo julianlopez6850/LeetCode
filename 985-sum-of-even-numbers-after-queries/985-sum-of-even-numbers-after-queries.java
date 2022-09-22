@@ -11,13 +11,14 @@ class Solution {
         
         for(int i = 0; i < queries.length; i++)
         {
-            if(nums[queries[i][1]] % 2 == 0)
-                answer[i] -= nums[queries[i][1]];
+            int index = queries[i][1];
+            if(nums[index] % 2 == 0)
+                answer[i] -= nums[index];
             
-            nums[queries[i][1]] = nums[queries[i][1]] + queries[i][0];
+            nums[index] += queries[i][0];
             
-            if(nums[queries[i][1]] % 2 == 0)
-                answer[i] += nums[queries[i][1]];
+            if(nums[index] % 2 == 0)
+                answer[i] += nums[index];
                 
             if(i + 1 != queries.length)
                 answer[i+1] = answer[i];
