@@ -16,20 +16,13 @@ class Solution {
             numBeforeQuery = nums[queries[i][1]];
             
             if(nums[queries[i][1]] % 2 == 0)
-                before = true;
+                answer[i] -= nums[queries[i][1]];
             
             nums[queries[i][1]] = nums[queries[i][1]] + queries[i][0];
             
             if(nums[queries[i][1]] % 2 == 0)
-                after = true;
-            
-            if(before == true && after == true)
-                answer[i] += nums[queries[i][1]] - numBeforeQuery;
-            else if(before == true)
-                answer[i] -= numBeforeQuery;
-            else if(after == true)
                 answer[i] += nums[queries[i][1]];
-            
+                
             if(i + 1 != queries.length)
                 answer[i+1] = answer[i];
             
