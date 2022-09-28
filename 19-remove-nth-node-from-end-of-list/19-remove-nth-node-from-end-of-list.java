@@ -10,7 +10,7 @@
  */
 class Solution {
     
-    int counter = -1;
+    int counter = 0;
     
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummyhead = new ListNode();
@@ -26,8 +26,6 @@ class Solution {
             removeNthHelper(head.next, n);
             counter++;
         }
-        else
-            counter++;
         if(counter == n)
             head.next = head.next.next;
         return head;
