@@ -22,11 +22,8 @@ class Solution {
     public ListNode removeNthHelper(ListNode head, int n)
     {
         if(head.next != null)
-        {
             removeNthHelper(head.next, n);
-            counter++;
-        }
-        if(counter == n)
+        if(counter++ == n)
             head.next = head.next.next;
         return head;
     }
