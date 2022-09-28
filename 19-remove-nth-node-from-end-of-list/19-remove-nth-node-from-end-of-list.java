@@ -10,11 +10,10 @@
  */
 class Solution {
     
-    ListNode dummyhead = new ListNode();
-    Boolean end = false;
     int counter = -1;
     
     public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummyhead = new ListNode();
         dummyhead.next = head;
         removeNthHelper(dummyhead, n);
         return dummyhead.next;
@@ -25,22 +24,12 @@ class Solution {
         if(head.next != null)
         {
             removeNthHelper(head.next, n);
+            counter++;
         }
         else
-            end = true;
-        if(end == true)
             counter++;
         if(counter == n)
-        {
-            if(head.next != null)
-            {
-                head.next = head.next.next;
-            }
-            else
-            {
-                head = null;
-            }
-        }
+            head.next = head.next.next;
         return head;
     }
 }
