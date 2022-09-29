@@ -16,25 +16,13 @@ class Solution {
         for(int i = 1; i < arr.length; i++)
         {
             if(result.size() < k)
-                for(int j = 0; j < result.size() + 1; j++)
-                {
-                    if(j == result.size() || Math.abs(result.get(j) - x) > Math.abs(arr[i] - x))
-                    {
-                        result.add(0, arr[i]);
-                        break;
-                    }
-                }
-            else
             {
-                for(int j = 0; j < result.size(); j++)
-                {
-                    if(Math.abs(result.get(j) - x) > Math.abs(arr[i] - x))
-                    {
-                        result.add(0, arr[i]);
-                        result.remove(result.size() - 1);
-                        break;
-                    }
-                }
+                result.add(0, arr[i]);
+            }
+            else if(Math.abs(result.get(result.size() - 1) - x) > Math.abs(arr[i] - x))
+            {
+                result.add(0, arr[i]);
+                result.remove(result.size() - 1);
             }
         }
         reverseList(result);
