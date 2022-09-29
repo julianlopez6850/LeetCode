@@ -20,7 +20,7 @@ class Solution {
                 {
                     if(j == result.size() || Math.abs(result.get(j) - x) > Math.abs(arr[i] - x))
                     {
-                        result.add(result.size(), arr[i]);
+                        result.add(0, arr[i]);
                         break;
                     }
                 }
@@ -30,13 +30,24 @@ class Solution {
                 {
                     if(Math.abs(result.get(j) - x) > Math.abs(arr[i] - x))
                     {
-                        result.add(arr[i]);
-                        result.remove(0);
+                        result.add(0, arr[i]);
+                        result.remove(result.size() - 1);
                         break;
                     }
                 }
             }
         }
+        reverseList(result);
         return result;
+    }
+    
+    public void reverseList(List<Integer> arr)
+    {
+        for(int i = 0; i < arr.size() / 2; i++)
+        {
+            int temp = arr.get(i);
+            arr.set(i, arr.get(arr.size() - i - 1));
+            arr.set(arr.size() - i - 1,  temp);
+        }
     }
 }
