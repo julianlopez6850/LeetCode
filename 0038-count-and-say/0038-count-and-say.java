@@ -12,7 +12,7 @@ class Solution {
             return say;
         
         Character currLetter = '0';
-        int counter = 0;
+        int counter = 1;
         
         StringBuilder str = new StringBuilder("");
         for(int i = 0; i <= say.length(); i++)
@@ -24,14 +24,9 @@ class Solution {
                 counter = 1;
             }
             else if(currLetter == '0')
-            {
-                counter++;
                 currLetter = say.charAt(i);
-            }
             else if(say.charAt(i) == currLetter)
-            {
                 counter++;
-            }
             else
             {
                 str.append(Integer.toString(counter));
